@@ -1,0 +1,23 @@
+body{
+
+   //**** este
+    background: black url('../img/negro estrellas 1.png');
+
+    //Minimalista
+    // background: black url('../img/negro estrellas 2.png');
+
+}
+
+.container{
+    margin-top: 5rem!important;
+}
+
+
+.myScroll{
+    overflow-x: scroll;
+    overflow-y: hidden;
+    background-color: rgba(99, 97, 97, 0.651);
+    align-items: center;
+    padding: 2rem 1rem;
+}
+
