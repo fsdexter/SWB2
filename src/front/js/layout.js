@@ -1,13 +1,15 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import ScrollToTop from "./component/scrollToTop";
 
 import { Home } from "./pages/home";
-import { Demo } from "./pages/demo";
-import { Single } from "./pages/single";
+import { DetailsCharacter } from "./pages/DetailsCharacter";
+import { DetailsPlanet } from "./pages/DetailsPlanet";
+import { DetailsSpecie } from "./pages/DetailsSpecie";
+import { DetailsStarship } from "./pages/DetailsStarship";
+import { DetailsVehicle } from "./pages/DetailsVehicle";
 import injectContext from "./store/appContext";
 
-import { Navbar } from "./component/navbar";
+import { MyNavbar } from "./component/MyNavbar";
 import { Footer } from "./component/footer";
 
 //create your first component
@@ -19,24 +21,38 @@ const Layout = () => {
 	return (
 		<div className="d-flex flex-column h-100">
 			<BrowserRouter basename={basename}>
-				<ScrollToTop>
-					<Navbar />
-					<Switch>
-						<Route exact path="/">
-							<Home />
-						</Route>
-						<Route exact path="/demo">
-							<Demo />
-						</Route>
-						<Route exact path="/single/:theid">
-							<Single />
-						</Route>
-						<Route>
-							<h1>Not found!</h1>
-						</Route>
-					</Switch>
-					<Footer />
-				</ScrollToTop>
+				<MyNavbar />
+				<Switch>
+					<Route exact path="/">
+						<Home />
+					</Route>
+
+					{/* "useParams" */}
+					<Route exact path="/people/:uid">
+						<DetailsCharacter />
+					</Route>
+
+					<Route exact path="/planets/:uid">
+						<DetailsPlanet />
+					</Route>
+
+					<Route exact path="/species/:uid">
+						<DetailsSpecie />
+					</Route>
+
+					<Route exact path="/starships/:uid">
+						<DetailsStarship />
+					</Route>
+
+					<Route exact path="/vehicles/:uid">
+						<DetailsVehicle />
+					</Route>
+
+					<Route>
+						<h1>Not found!</h1>
+					</Route>
+				</Switch>
+				<Footer />
 			</BrowserRouter>
 		</div>
 	);
